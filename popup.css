@@ -14,9 +14,14 @@ body {
   font-weight: bold;
 }
 
+.seats-label {
+  margin-top: 10px;  
+  font-weight: bold;
+}
+
 .timer-input {
-  padding: 10px;
-  font-size: 1.1rem;
+  padding: 5px;
+  font-size: 0.9rem;
 }
 
 .submit-button {
@@ -90,6 +95,6 @@ body {
   width: 40px;
 }
 
-.hide-voice-options {
+.hide-options {
   display: none;
 }

@@ -54,3 +54,7 @@ input#text-to-voice-button {
   padding: 15px 20px;
   /* font-weight: bold; */
 }
+
+.triggered {
+   background-color: lightblue;
+}
