@@ -97,14 +97,10 @@ function addButtons() {
 
 function setButtonLogic() {
   $('#timer-button').click((e) => {	
-	console.log("timer button");
-	console.log("ondirect " + onDirect);	
-	
-    clearInterval(timer)	
+	clearInterval(timer)	
 	
     epochEndTime = new Date(new Date().getTime() + (onDirect ? getDirectTime() : passTime) * 1000)
 	if (onDirect) {
-		console.log("abs set")
 		absenteeEndTime = epochEndTime
 	}	
 	
@@ -179,21 +175,15 @@ function passWrongButtonHandler() {
 		
 		let baseTime = new Date().getTime()
 		let actualPassTime = passTime
-		
-		console.log("empty direct = " + isEmptyDirect());
-		console.log("baseTime = " + baseTime);
-		console.log("absenteeTime = " + absenteeEndTime.getTime());
-		
+				
 		if (isEmptyDirect() && baseTime < absenteeEndTime) {
 			baseTime = absenteeEndTime.getTime()
 			
 			if (currentPlayer == 1) {
-				console.log("No extra time")
 				actualPassTime = 0
 			}
 		} 
 			
-		console.log("actualPassTime = " + actualPassTime);
 		epochEndTime = new Date(baseTime + actualPassTime * 1000)
 		
 		timer = setInterval(startTimer, INTERVAL)
@@ -281,7 +271,7 @@ function addKeyboardShortcuts() {
 	  flashButton(wrongButton)
       wrongButton.click()
     }
-    if (e.which === 70 || e.which === 112) { //'F' or 'f'
+    if (e.which === 70 || e.which === 102) { //'F' or 'f'
 	  flashButton(killButton)
       killButton.click()
     }

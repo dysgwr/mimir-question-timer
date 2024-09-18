@@ -4,9 +4,9 @@ const queryParams = {
   currentWindow: true
 }
 
-// document.getElementById("show-reader").addEventListener("click", () => {
-  // document.getElementsByClassName("voice-options")[0].classList.toggle("hide-options");
-// })
+document.getElementById("show-reader").addEventListener("click", () => {
+  document.getElementsByClassName("voice-options")[0].classList.toggle("hide-options");
+})
 
 let emptySeats = document.getElementsByClassName("empty-seat");
 for (let j = 0; j < emptySeats.length; j++) {
@@ -50,9 +50,9 @@ submitButton.addEventListener("click", (e) => {
           adjustTimeValue: adjustTime,
           removeClock: document.getElementById("remove-clock").checked,
           keyboardShortcuts: document.getElementById("keyboard-shortcuts").checked,
-          showReader: false,
-          speechRate: 0,
-          voiceType: 0,
+          showReader: document.getElementById("show-reader").checked,
+          speechRate: parseFloat(document.getElementById("speech-rate").value),
+          voiceType: parseInt(document.getElementById("voice-type").value) - 1,
 		  emptySeatsValue: emptySeats,
 		  emptyTimeValue: emptyTime
         })
