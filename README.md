@@ -10,12 +10,17 @@ Chrome extension to add a timer onto the Wikiquiz scoring page and make passing 
 
 05.02.2023: Update the `manifest.json` version to 3.
 
-13.08.20223: v2.1.0
+13.08.2023: v2.1.0
 Changes:
 1. Refactor code
 2. Add buttons to adjust time
 3. Reset time based on direct/pass
 4. Add keyboard shortcuts
+
+18.09.2024: v2.2.0
+Changes: 
+1. Added empty seat handling 
+2. Added colour feedback to buttons activated by keyboard shortcuts
 
 ## Instructions for installation
 1. Download the zip file `mimir-question-timer.7z` using the Code button and Download Zip.
@@ -39,6 +44,15 @@ Changes:
    |Q|Undo|
    |Z|Start/reset timer|
    |L|Show next question|
+   
+## Empty seats 
+If a player is missing, you can indicate this on the timer configuration. 
+This player will be passed automatically whenever they are due to answer a question. 
+
+If the player who should be receiving a direct is missing, the first player in the bonus
+queue will be given additional time to answer (as specified by the **Empty Seat Time** option. 
+If the question is passed/wrong, the next player will be given the remaining **Empty Seat Time** 
+plus the **PASS** time configured. 
 
 ## Contact
 1. Email me at **dsouza.arnold@gmail.com** for any clarifications or to report any bugs.
