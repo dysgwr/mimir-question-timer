@@ -16,7 +16,13 @@
     <label for="pass-duration" class="timer-label">PASS (0-60 sec):</label>
     <input type="number" name="pass-duration" value="3" class="timer-input" id="input-timer-pass" min="0" max="60" />
     <label for="pass-duration" class="timer-label">Adjust time inc/dec:</label>
-    <input type="number" name="pass-duration" value="5" class="timer-input" id="input-timer-adjust" min="0" max="30" />
+	<div class="h-container">
+		<input type="number" name="pass-duration" value="5" class="timer-input" id="input-timer-adjust" min="0" max="30" />
+		<span class="checkbox-container">
+		  <input type="checkbox" id="hide-adjust">
+		  <label for="hide-adjust">Hide</label>
+		</span>
+	</div>
     <button class="submit-button" id="submit-button">SET TIMER</button>
 	
     <div class="checkbox-container">
@@ -33,7 +39,8 @@
           f: kill <br />
           q: undo <br />
           z: start timer <br />
-          l: show next question
+          l: show next question<br />
+		  m: show previous answer
         </span>
       </label>
     </div>

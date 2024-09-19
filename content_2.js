@@ -12,6 +12,7 @@ let timerAlreadyExists = false;
 let readButtonAlreadyExists = false;
 let showReader = false;
 let emptySeats = [];
+let hideAdjust = false;
 
 let totalPlayers = 0;
 let currentPlayer = 0;
@@ -41,6 +42,7 @@ function setInitialValues(request) {
   voiceType = request.voiceType
   emptySeats = request.emptySeatsValue
   emptyTime = request.emptyTimeValue
+  hideAdjust = request.hideAdjust;
 }
 
 function isEmptyDirect() {
@@ -87,7 +89,11 @@ function addButtons() {
     const $decreaseButton = $('<input/>').attr({ id: 'decrease-button', class: 'adjust-button', type: 'button', value: '-' })
     const $increaseButton = $('<input/>').attr({ id: 'increase-button', class: 'adjust-button', type: 'button', value: '+' })
 
-    $newSpan.append($decreaseButton).append($timerButton).append($increaseButton)
+	if (!hideAdjust) {
+		$newSpan.append($decreaseButton).append($timerButton).append($increaseButton)
+	} else {
+		$newSpan.append($timerButton)
+	}
 
     $targetElement.append($newSpan)
   } else {
@@ -255,9 +261,8 @@ function addKeyboardShortcuts() {
   const passButton = document.querySelectorAll("input[value='Pass']")[0]
   const wrongButton = document.querySelectorAll("input[value='Wrong']")[0]
   const killButton = document.querySelectorAll("input[value='Kill']")[0]
-  const timerButton = document.getElementById("timer-button")
-
-
+  const timerButton = document.getElementsByClassName("timer-button")[0]
+  
   $(document).keypress(e => {
     if (e.which === 65 || e.which === 97) { //'A' or 'a'
 	  flashButton(correctButton)
@@ -285,13 +290,25 @@ function addKeyboardShortcuts() {
   })
 }
 
+function triggerMouseEvent (node, eventType) {
+    var clickEvent = new Event(eventType, { bubbles: true, cancelable: true });
+    node.dispatchEvent (clickEvent);
+}
+
 function addShowNextQuestionShortcut() {
   if (keyboardShortcuts) {
+	console.log("AddNextQuestion")
     const showNextQuestion = document.querySelectorAll(".show-question-button")[0]
+	const showAnswer = document.querySelectorAll(".show-answer-button")[0]
+	
     $(document).keypress(e => {
       if (e.which === 76 || e.which === 108) { // 'L' or 'l'
         showNextQuestion?.click()
       }
+	  if (e.which === 77 || e.which === 109) { // 'M' or 'm'
+	    triggerMouseEvent(showAnswer, "mousedown")
+		window.scrollTo(0, document.body.scrollHeight);
+	  }
     })
   }
 }

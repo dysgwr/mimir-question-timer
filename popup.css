@@ -8,6 +8,13 @@ body {
   width: 250px;
 }
 
+.h-container {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  gap: 10px;
+}
+
 .timer-label {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -22,6 +29,7 @@ body {
 .timer-input {
   padding: 5px;
   font-size: 0.9rem;
+  flex-grow: 4;
 }
 
 .submit-button {

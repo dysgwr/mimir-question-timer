@@ -54,7 +54,8 @@ submitButton.addEventListener("click", (e) => {
           speechRate: parseFloat(document.getElementById("speech-rate").value),
           voiceType: parseInt(document.getElementById("voice-type").value) - 1,
 		  emptySeatsValue: emptySeats,
-		  emptyTimeValue: emptyTime
+		  emptyTimeValue: emptyTime,
+		  hideAdjust: document.getElementById("hide-adjust").checked
         })
         window.close();
       }
