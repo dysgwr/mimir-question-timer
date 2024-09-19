@@ -297,7 +297,6 @@ function triggerMouseEvent (node, eventType) {
 
 function addShowNextQuestionShortcut() {
   if (keyboardShortcuts) {
-	console.log("AddNextQuestion")
     const showNextQuestion = document.querySelectorAll(".show-question-button")[0]
 	const showAnswer = document.querySelectorAll(".show-answer-button")[0]
 	
